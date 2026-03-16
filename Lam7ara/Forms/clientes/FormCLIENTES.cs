@@ -8,12 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lam7ara
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
+namespace Lam7ara.Forms.clientes {
+    public partial class FormCLIENTES : Form {
+        public FormCLIENTES() {
             InitializeComponent();
         }
     }
