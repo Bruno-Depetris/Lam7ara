@@ -43,6 +43,9 @@
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="ReaLTaiizor, Version=3.8.1.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReaLTaiizor.3.8.1.5\lib\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
@@ -70,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIs\Logica\ApiCotizacion.cs" />
+    <Compile Include="APIs\Modelo\ModeloApiCotizacion .cs" />
     <Compile Include="Conectar.cs" />
     <Compile Include="Database\models\Caja.cs" />
     <Compile Include="Database\models\Cliente.cs" />
@@ -87,6 +92,12 @@
     </Compile>
     <Compile Include="Forms\clientes\FormCLIENTES.Designer.cs">
       <DependentUpon>FormCLIENTES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\inicio\FormInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\inicio\FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\main\FormMAIN.cs">
       <SubType>Form</SubType>
@@ -147,7 +158,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="APIs\" />
     <Folder Include="Forms\stock\" />
     <Folder Include="Forms\tecnical\" />
     <Folder Include="Managers\" />

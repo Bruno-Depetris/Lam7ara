@@ -1,4 +1,5 @@
 ﻿using Lam7ara.Forms.clientes;
+using Lam7ara.Forms.inicio;
 using Lam7ara.Forms.vender;
 using System;
 using System.Drawing;
@@ -13,6 +14,7 @@ namespace Lam7ara {
             InitializeComponent();
             lblDateTime.Text = DateTime.Now.ToString("dd/MM/yyyy") + "\r\n" + DateTime.Now.ToString("HH:mm:ss");
             panelActiveIndicator.BringToFront();
+            AbrirFormNuevo(new FormInicio());
         }
 
         private void timerClock_Tick(object sender, EventArgs e) {
@@ -102,7 +104,8 @@ namespace Lam7ara {
 
         private void btnNavInicio_Click(object sender, EventArgs e) {
             SetActiveNavItem(btnNavInicio);
-            // TODO: cargar contenido de Inicio en panelMainContent
+            AbrirFormNuevo(new FormInicio());
+
         }
 
         private void btnNavVender_Click(object sender, EventArgs e) {
