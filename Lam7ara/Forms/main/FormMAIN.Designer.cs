@@ -44,6 +44,7 @@
             this.btnWinMinimize = new System.Windows.Forms.Button();
             this.btnWinClose = new System.Windows.Forms.Button();
             this.panelTopBarSep = new System.Windows.Forms.Panel();
+            this.btnNavMovimiento = new System.Windows.Forms.Button();
             this.panelSidebar.SuspendLayout();
             this.panelSidebarHeader.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -61,6 +62,7 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
+            this.panelSidebar.Controls.Add(this.btnNavMovimiento);
             this.panelSidebar.Controls.Add(this.panelSidebarHeader);
             this.panelSidebar.Controls.Add(this.panelSep1);
             this.panelSidebar.Controls.Add(this.lblNavSection);
@@ -312,7 +314,7 @@
             this.panelMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainContent.Location = new System.Drawing.Point(0, 57);
             this.panelMainContent.Name = "panelMainContent";
-            this.panelMainContent.Padding = new System.Windows.Forms.Padding(24, 24, 24, 24);
+            this.panelMainContent.Padding = new System.Windows.Forms.Padding(24);
             this.panelMainContent.Size = new System.Drawing.Size(982, 609);
             this.panelMainContent.TabIndex = 1;
             // 
@@ -390,6 +392,26 @@
             this.panelTopBarSep.Size = new System.Drawing.Size(982, 1);
             this.panelTopBarSep.TabIndex = 3;
             // 
+            // btnNavMovimiento
+            // 
+            this.btnNavMovimiento.BackColor = System.Drawing.Color.Transparent;
+            this.btnNavMovimiento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNavMovimiento.FlatAppearance.BorderSize = 0;
+            this.btnNavMovimiento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(100)))));
+            this.btnNavMovimiento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(35)))), ((int)(((byte)(68)))));
+            this.btnNavMovimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNavMovimiento.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNavMovimiento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
+            this.btnNavMovimiento.Location = new System.Drawing.Point(0, 337);
+            this.btnNavMovimiento.Name = "btnNavMovimiento";
+            this.btnNavMovimiento.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnNavMovimiento.Size = new System.Drawing.Size(189, 43);
+            this.btnNavMovimiento.TabIndex = 10;
+            this.btnNavMovimiento.Text = "Movimientos";
+            this.btnNavMovimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNavMovimiento.UseVisualStyleBackColor = false;
+            this.btnNavMovimiento.Click += new System.EventHandler(this.btnNavMovimiento_Click);
+            // 
             // FormMAIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,5 +462,6 @@
         private System.Windows.Forms.Button btnWinClose;
         private System.Windows.Forms.Panel panelTopBarSep;
         private System.Windows.Forms.Panel panelMainContent;
+        private System.Windows.Forms.Button btnNavMovimiento;
     }
 }

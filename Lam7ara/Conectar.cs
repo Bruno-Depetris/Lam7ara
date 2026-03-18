@@ -10,7 +10,7 @@ namespace Lam7ara{
         private static string pathDB = Path.Combine(AppDomain.CurrentDomain.GetData("DataDirectory").ToString(), "Lam7araDataBaseAPP.db");
         private static string cadena = $"Data Source={Path.Combine(AppDomain.CurrentDomain.GetData("DataDirectory").ToString(), "Lam7araDataBaseAPP.db")};";
 
-        private static string cadenaAppData = $"Data Source={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Lam7ara", "Lam7araDataBaseAPP.db")};";
+        private static string cadenaAppData = $"Data Source={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Lam7ara", "Lam7araDataBaseAPP.db")};Version=3;"; 
         private static string pathDBAppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Lam7ara", "Lam7araDataBaseAPP.db");
         private static string BackUp = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BackUpLam7ara", "Lam7araDataBaseAPP.db");
 
@@ -25,10 +25,10 @@ namespace Lam7ara{
             }
             Console.WriteLine("Carpeta encontrada con éxito");
 
-            string repasFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Lam7ara");
+            string lam7araFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Lam7ara");
 
-            if(!Directory.Exists(repasFolderPath)) {
-                Directory.CreateDirectory(repasFolderPath);
+            if(!Directory.Exists(lam7araFolderPath)) {
+                Directory.CreateDirectory(lam7araFolderPath);
                 Console.WriteLine("La carpeta 'Lam7ara' no existía, fue creada con éxito");
             }
 

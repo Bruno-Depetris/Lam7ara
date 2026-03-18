@@ -28,12 +28,6 @@
             this.panelProductos = new System.Windows.Forms.Panel();
             this.txtBuscarProducto = new ReaLTaiizor.Controls.HopeTextBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuitar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblCantLabel = new System.Windows.Forms.Label();
@@ -51,6 +45,13 @@
             this.rbTransferencia = new System.Windows.Forms.RadioButton();
             this.rbEfectivo = new System.Windows.Forms.RadioButton();
             this.lblSecPago = new System.Windows.Forms.Label();
+            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuitar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.button_VerVentas = new System.Windows.Forms.Button();
             this.panelCliente.SuspendLayout();
             this.panelClienteCard.SuspendLayout();
@@ -224,6 +225,7 @@
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNum,
+            this.colProductoID,
             this.colProducto,
             this.colPrecio,
             this.colCantidad,
@@ -247,49 +249,6 @@
             this.dgvProductos.Size = new System.Drawing.Size(934, 194);
             this.dgvProductos.TabIndex = 6;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
-            // 
-            // colNum
-            // 
-            this.colNum.HeaderText = "#";
-            this.colNum.Name = "colNum";
-            this.colNum.ReadOnly = true;
-            this.colNum.Width = 40;
-            // 
-            // colProducto
-            // 
-            this.colProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colProducto.HeaderText = "Producto";
-            this.colProducto.Name = "colProducto";
-            this.colProducto.ReadOnly = true;
-            // 
-            // colPrecio
-            // 
-            this.colPrecio.HeaderText = "Precio Unit.";
-            this.colPrecio.Name = "colPrecio";
-            this.colPrecio.ReadOnly = true;
-            this.colPrecio.Width = 110;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cant.";
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.ReadOnly = true;
-            this.colCantidad.Width = 60;
-            // 
-            // colSubtotal
-            // 
-            this.colSubtotal.HeaderText = "Subtotal";
-            this.colSubtotal.Name = "colSubtotal";
-            this.colSubtotal.ReadOnly = true;
-            this.colSubtotal.Width = 110;
-            // 
-            // colQuitar
-            // 
-            this.colQuitar.HeaderText = "";
-            this.colQuitar.Name = "colQuitar";
-            this.colQuitar.Text = "X";
-            this.colQuitar.UseColumnTextForButtonValue = true;
-            this.colQuitar.Width = 50;
             // 
             // btnAgregarProducto
             // 
@@ -533,8 +492,54 @@
             this.lblSecPago.TabIndex = 0;
             this.lblSecPago.Text = "MEDIO DE PAGO";
             // 
+            // colNum
+            // 
+            this.colNum.HeaderText = "#";
+            this.colNum.Name = "colNum";
+            this.colNum.ReadOnly = true;
+            this.colNum.Width = 40;
+            // 
+            // colProductoID
+            // 
+            this.colProductoID.HeaderText = "ID";
+            this.colProductoID.Name = "colProductoID";
+            // 
+            // colProducto
+            // 
+            this.colProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colProducto.HeaderText = "Producto";
+            this.colProducto.Name = "colProducto";
+            this.colProducto.ReadOnly = true;
+            // 
+            // colPrecio
+            // 
+            this.colPrecio.HeaderText = "Precio Unit.";
+            this.colPrecio.Name = "colPrecio";
+            this.colPrecio.ReadOnly = true;
+            this.colPrecio.Width = 110;
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.HeaderText = "Cant.";
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.ReadOnly = true;
+            this.colCantidad.Width = 60;
+            // 
+            // colSubtotal
+            // 
+            this.colSubtotal.HeaderText = "Subtotal";
+            this.colSubtotal.Name = "colSubtotal";
+            this.colSubtotal.ReadOnly = true;
+            this.colSubtotal.Width = 110;
+            // 
+            // colQuitar
             // button_VerVentas
             // 
+            this.colQuitar.HeaderText = "";
+            this.colQuitar.Name = "colQuitar";
+            this.colQuitar.Text = "X";
+            this.colQuitar.UseColumnTextForButtonValue = true;
+            this.colQuitar.Width = 50;
             this.button_VerVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button_VerVentas.FlatAppearance.BorderSize = 0;
             this.button_VerVentas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(82)))), ((int)(((byte)(221)))));
@@ -589,12 +594,6 @@
         private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.Button btnAgregarProducto;
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
-        private System.Windows.Forms.DataGridViewButtonColumn colQuitar;
         private System.Windows.Forms.Panel panelSepProductos;
         private System.Windows.Forms.Panel panelPago;
         private System.Windows.Forms.Label lblSecPago;
@@ -609,6 +608,13 @@
         private System.Windows.Forms.Button btnConcretar;
         private ReaLTaiizor.Controls.HopeTextBox txtBuscarCliente;
         private ReaLTaiizor.Controls.HopeTextBox txtBuscarProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductoID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
+        private System.Windows.Forms.DataGridViewButtonColumn colQuitar;
         private System.Windows.Forms.Button button_VerVentas;
     }
 }
