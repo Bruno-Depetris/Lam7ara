@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +36,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="ReaLTaiizor, Version=3.8.1.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReaLTaiizor.3.8.1.5\lib\net48\ReaLTaiizor.dll</HintPath>
@@ -40,8 +49,16 @@
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=2.0.2.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.2.0.2\lib\net471\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=2.0.2.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.2.0.2\lib\net471\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="System.Design" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +70,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conectar.cs" />
+    <Compile Include="Database\models\Caja.cs" />
+    <Compile Include="Database\models\Cliente.cs" />
+    <Compile Include="Database\models\Movimiento.cs" />
+    <Compile Include="Database\models\Producto.cs" />
+    <Compile Include="Database\models\Venta.cs" />
+    <Compile Include="Database\models\VentaProducto.cs" />
+    <Compile Include="Database\services\CajaService.cs" />
+    <Compile Include="Database\services\ClienteService.cs" />
+    <Compile Include="Database\services\MovimientoService.cs" />
+    <Compile Include="Database\services\ProductoService.cs" />
+    <Compile Include="Database\services\VentaService.cs" />
     <Compile Include="Forms\clientes\FormCLIENTES.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,11 +94,31 @@
     <Compile Include="Forms\main\FormMAIN.Designer.cs">
       <DependentUpon>FormMAIN.cs</DependentUpon>
     </Compile>
-    <Compile Include="Private\DatabaseConnections.cs" />
+    <Compile Include="Forms\vender\FormSelectorCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\vender\FormSelectorCliente.Designer.cs">
+      <DependentUpon>FormSelectorCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\vender\FormSelectorProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\vender\FormSelectorProducto.Designer.cs">
+      <DependentUpon>FormSelectorProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\vender\FormVender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\vender\FormVender.Designer.cs">
+      <DependentUpon>FormVender.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\main\FormMAIN.resx">
       <DependentUpon>FormMAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\vender\FormVender.resx">
+      <DependentUpon>FormVender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,13 +148,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="APIs\" />
-    <Folder Include="Database\" />
     <Folder Include="Forms\stock\" />
     <Folder Include="Forms\tecnical\" />
-    <Folder Include="Forms\vender\" />
     <Folder Include="Managers\" />
+    <Folder Include="Private\" />
     <Folder Include="Public\" />
     <Folder Include="Utils\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="DatabaseCore.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
 </Project>
