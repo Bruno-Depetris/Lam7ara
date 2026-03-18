@@ -1,4 +1,6 @@
 ﻿using Lam7ara.Forms.clientes;
+using Lam7ara.Forms.movimientos;
+using Lam7ara.Forms.stock;
 using Lam7ara.Forms.vender;
 using System;
 using System.Drawing;
@@ -119,6 +121,7 @@ namespace Lam7ara {
 
         private void btnNavStock_Click(object sender, EventArgs e) {
             SetActiveNavItem(btnNavStock);
+            AbrirFormNuevo(new FormStock());
             // TODO: cargar contenido de Stock en panelMainContent
         }
 
@@ -129,6 +132,11 @@ namespace Lam7ara {
 
         private void panelTopBar_Paint(object sender, PaintEventArgs e) {
 
+        }
+
+        private void btnNavMovimiento_Click(object sender, EventArgs e) {
+            SetActiveNavItem(btnNavMovimiento);
+            AbrirFormNuevo(new FormMovimientos());
         }
     }
 }

@@ -18,6 +18,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCliente = new System.Windows.Forms.Panel();
+            this.txtBuscarCliente = new ReaLTaiizor.Controls.HopeTextBox();
             this.panelClienteCard = new System.Windows.Forms.Panel();
             this.lblClienteDNI = new System.Windows.Forms.Label();
             this.lblClienteNombre = new System.Windows.Forms.Label();
@@ -25,13 +26,8 @@
             this.lblSecCliente = new System.Windows.Forms.Label();
             this.panelSepCliente = new System.Windows.Forms.Panel();
             this.panelProductos = new System.Windows.Forms.Panel();
+            this.txtBuscarProducto = new ReaLTaiizor.Controls.HopeTextBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuitar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblCantLabel = new System.Windows.Forms.Label();
@@ -49,8 +45,13 @@
             this.rbTransferencia = new System.Windows.Forms.RadioButton();
             this.rbEfectivo = new System.Windows.Forms.RadioButton();
             this.lblSecPago = new System.Windows.Forms.Label();
-            this.txtBuscarCliente = new ReaLTaiizor.Controls.HopeTextBox();
-            this.txtBuscarProducto = new ReaLTaiizor.Controls.HopeTextBox();
+            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuitar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelCliente.SuspendLayout();
             this.panelClienteCard.SuspendLayout();
             this.panelProductos.SuspendLayout();
@@ -70,6 +71,29 @@
             this.panelCliente.Name = "panelCliente";
             this.panelCliente.Size = new System.Drawing.Size(934, 102);
             this.panelCliente.TabIndex = 0;
+            // 
+            // txtBuscarCliente
+            // 
+            this.txtBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
+            this.txtBuscarCliente.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.txtBuscarCliente.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.txtBuscarCliente.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
+            this.txtBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
+            this.txtBuscarCliente.Hint = "Buscar por nombre o DNI...";
+            this.txtBuscarCliente.Location = new System.Drawing.Point(0, 22);
+            this.txtBuscarCliente.MaxLength = 32767;
+            this.txtBuscarCliente.Multiline = false;
+            this.txtBuscarCliente.Name = "txtBuscarCliente";
+            this.txtBuscarCliente.PasswordChar = '\0';
+            this.txtBuscarCliente.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBuscarCliente.SelectedText = "";
+            this.txtBuscarCliente.SelectionLength = 0;
+            this.txtBuscarCliente.SelectionStart = 0;
+            this.txtBuscarCliente.Size = new System.Drawing.Size(652, 38);
+            this.txtBuscarCliente.TabIndex = 7;
+            this.txtBuscarCliente.TabStop = false;
+            this.txtBuscarCliente.UseSystemPasswordChar = false;
             // 
             // panelClienteCard
             // 
@@ -154,6 +178,29 @@
             this.panelProductos.Size = new System.Drawing.Size(934, 258);
             this.panelProductos.TabIndex = 2;
             // 
+            // txtBuscarProducto
+            // 
+            this.txtBuscarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
+            this.txtBuscarProducto.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.txtBuscarProducto.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.txtBuscarProducto.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
+            this.txtBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtBuscarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
+            this.txtBuscarProducto.Hint = "Buscar un producto";
+            this.txtBuscarProducto.Location = new System.Drawing.Point(0, 20);
+            this.txtBuscarProducto.MaxLength = 32767;
+            this.txtBuscarProducto.Multiline = false;
+            this.txtBuscarProducto.Name = "txtBuscarProducto";
+            this.txtBuscarProducto.PasswordChar = '\0';
+            this.txtBuscarProducto.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBuscarProducto.SelectedText = "";
+            this.txtBuscarProducto.SelectionLength = 0;
+            this.txtBuscarProducto.SelectionStart = 0;
+            this.txtBuscarProducto.Size = new System.Drawing.Size(429, 38);
+            this.txtBuscarProducto.TabIndex = 8;
+            this.txtBuscarProducto.TabStop = false;
+            this.txtBuscarProducto.UseSystemPasswordChar = false;
+            // 
             // dgvProductos
             // 
             this.dgvProductos.AllowUserToAddRows = false;
@@ -177,6 +224,7 @@
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNum,
+            this.colProductoID,
             this.colProducto,
             this.colPrecio,
             this.colCantidad,
@@ -200,49 +248,6 @@
             this.dgvProductos.Size = new System.Drawing.Size(934, 194);
             this.dgvProductos.TabIndex = 6;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
-            // 
-            // colNum
-            // 
-            this.colNum.HeaderText = "#";
-            this.colNum.Name = "colNum";
-            this.colNum.ReadOnly = true;
-            this.colNum.Width = 40;
-            // 
-            // colProducto
-            // 
-            this.colProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colProducto.HeaderText = "Producto";
-            this.colProducto.Name = "colProducto";
-            this.colProducto.ReadOnly = true;
-            // 
-            // colPrecio
-            // 
-            this.colPrecio.HeaderText = "Precio Unit.";
-            this.colPrecio.Name = "colPrecio";
-            this.colPrecio.ReadOnly = true;
-            this.colPrecio.Width = 110;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cant.";
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.ReadOnly = true;
-            this.colCantidad.Width = 60;
-            // 
-            // colSubtotal
-            // 
-            this.colSubtotal.HeaderText = "Subtotal";
-            this.colSubtotal.Name = "colSubtotal";
-            this.colSubtotal.ReadOnly = true;
-            this.colSubtotal.Width = 110;
-            // 
-            // colQuitar
-            // 
-            this.colQuitar.HeaderText = "";
-            this.colQuitar.Name = "colQuitar";
-            this.colQuitar.Text = "X";
-            this.colQuitar.UseColumnTextForButtonValue = true;
-            this.colQuitar.Width = 50;
             // 
             // btnAgregarProducto
             // 
@@ -485,51 +490,53 @@
             this.lblSecPago.TabIndex = 0;
             this.lblSecPago.Text = "MEDIO DE PAGO";
             // 
-            // txtBuscarCliente
+            // colNum
             // 
-            this.txtBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
-            this.txtBuscarCliente.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.txtBuscarCliente.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.txtBuscarCliente.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
-            this.txtBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
-            this.txtBuscarCliente.Hint = "Buscar por nombre o DNI...";
-            this.txtBuscarCliente.Location = new System.Drawing.Point(0, 22);
-            this.txtBuscarCliente.MaxLength = 32767;
-            this.txtBuscarCliente.Multiline = false;
-            this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.PasswordChar = '\0';
-            this.txtBuscarCliente.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBuscarCliente.SelectedText = "";
-            this.txtBuscarCliente.SelectionLength = 0;
-            this.txtBuscarCliente.SelectionStart = 0;
-            this.txtBuscarCliente.Size = new System.Drawing.Size(652, 38);
-            this.txtBuscarCliente.TabIndex = 7;
-            this.txtBuscarCliente.TabStop = false;
-            this.txtBuscarCliente.UseSystemPasswordChar = false;
+            this.colNum.HeaderText = "#";
+            this.colNum.Name = "colNum";
+            this.colNum.ReadOnly = true;
+            this.colNum.Width = 40;
             // 
-            // txtBuscarProducto
+            // colProductoID
             // 
-            this.txtBuscarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
-            this.txtBuscarProducto.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.txtBuscarProducto.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.txtBuscarProducto.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
-            this.txtBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtBuscarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
-            this.txtBuscarProducto.Hint = "Buscar un producto";
-            this.txtBuscarProducto.Location = new System.Drawing.Point(0, 20);
-            this.txtBuscarProducto.MaxLength = 32767;
-            this.txtBuscarProducto.Multiline = false;
-            this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.PasswordChar = '\0';
-            this.txtBuscarProducto.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBuscarProducto.SelectedText = "";
-            this.txtBuscarProducto.SelectionLength = 0;
-            this.txtBuscarProducto.SelectionStart = 0;
-            this.txtBuscarProducto.Size = new System.Drawing.Size(429, 38);
-            this.txtBuscarProducto.TabIndex = 8;
-            this.txtBuscarProducto.TabStop = false;
-            this.txtBuscarProducto.UseSystemPasswordChar = false;
+            this.colProductoID.HeaderText = "ID";
+            this.colProductoID.Name = "colProductoID";
+            // 
+            // colProducto
+            // 
+            this.colProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colProducto.HeaderText = "Producto";
+            this.colProducto.Name = "colProducto";
+            this.colProducto.ReadOnly = true;
+            // 
+            // colPrecio
+            // 
+            this.colPrecio.HeaderText = "Precio Unit.";
+            this.colPrecio.Name = "colPrecio";
+            this.colPrecio.ReadOnly = true;
+            this.colPrecio.Width = 110;
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.HeaderText = "Cant.";
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.ReadOnly = true;
+            this.colCantidad.Width = 60;
+            // 
+            // colSubtotal
+            // 
+            this.colSubtotal.HeaderText = "Subtotal";
+            this.colSubtotal.Name = "colSubtotal";
+            this.colSubtotal.ReadOnly = true;
+            this.colSubtotal.Width = 110;
+            // 
+            // colQuitar
+            // 
+            this.colQuitar.HeaderText = "";
+            this.colQuitar.Name = "colQuitar";
+            this.colQuitar.Text = "X";
+            this.colQuitar.UseColumnTextForButtonValue = true;
+            this.colQuitar.Width = 50;
             // 
             // FormVender
             // 
@@ -570,12 +577,6 @@
         private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.Button btnAgregarProducto;
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
-        private System.Windows.Forms.DataGridViewButtonColumn colQuitar;
         private System.Windows.Forms.Panel panelSepProductos;
         private System.Windows.Forms.Panel panelPago;
         private System.Windows.Forms.Label lblSecPago;
@@ -590,5 +591,12 @@
         private System.Windows.Forms.Button btnConcretar;
         private ReaLTaiizor.Controls.HopeTextBox txtBuscarCliente;
         private ReaLTaiizor.Controls.HopeTextBox txtBuscarProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductoID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
+        private System.Windows.Forms.DataGridViewButtonColumn colQuitar;
     }
 }

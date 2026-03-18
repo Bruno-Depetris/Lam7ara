@@ -17,8 +17,9 @@ namespace Lam7ara
             AppDomain.CurrentDomain.SetData("DataDirectory", AppDomain.CurrentDomain.BaseDirectory);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMAIN());
             Conectar.Comprobar();
+            Application.Run(new FormMAIN());
+            
         }
     }
 }

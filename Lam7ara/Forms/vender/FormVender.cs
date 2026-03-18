@@ -87,9 +87,10 @@ namespace Lam7ara.Forms.vender {
             decimal precio = _productoSeleccionado.PrecioVenta;
             decimal sub = precio * cant;
             int rowNum = dgvProductos.Rows.Count + 1;
-
+            
             dgvProductos.Rows.Add(
                 rowNum,
+                _productoSeleccionado.ProductoID,
                 _productoSeleccionado.Nombre,
                 "$" + precio.ToString("N2"),
                 cant,
