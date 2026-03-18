@@ -215,5 +215,10 @@ namespace Lam7ara.Forms.vender {
             }
             return total;
         }
+
+        private void button_VerVentas_Click(object sender, EventArgs e) {
+            using (var f = new FormVerVentas())
+                f.ShowDialog();
+        }
     }
 }

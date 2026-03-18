@@ -18,6 +18,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCliente = new System.Windows.Forms.Panel();
+            this.txtBuscarCliente = new ReaLTaiizor.Controls.HopeTextBox();
             this.panelClienteCard = new System.Windows.Forms.Panel();
             this.lblClienteDNI = new System.Windows.Forms.Label();
             this.lblClienteNombre = new System.Windows.Forms.Label();
@@ -25,6 +26,7 @@
             this.lblSecCliente = new System.Windows.Forms.Label();
             this.panelSepCliente = new System.Windows.Forms.Panel();
             this.panelProductos = new System.Windows.Forms.Panel();
+            this.txtBuscarProducto = new ReaLTaiizor.Controls.HopeTextBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +51,7 @@
             this.rbTransferencia = new System.Windows.Forms.RadioButton();
             this.rbEfectivo = new System.Windows.Forms.RadioButton();
             this.lblSecPago = new System.Windows.Forms.Label();
-            this.txtBuscarCliente = new ReaLTaiizor.Controls.HopeTextBox();
-            this.txtBuscarProducto = new ReaLTaiizor.Controls.HopeTextBox();
+            this.button_VerVentas = new System.Windows.Forms.Button();
             this.panelCliente.SuspendLayout();
             this.panelClienteCard.SuspendLayout();
             this.panelProductos.SuspendLayout();
@@ -70,6 +71,29 @@
             this.panelCliente.Name = "panelCliente";
             this.panelCliente.Size = new System.Drawing.Size(934, 102);
             this.panelCliente.TabIndex = 0;
+            // 
+            // txtBuscarCliente
+            // 
+            this.txtBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
+            this.txtBuscarCliente.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.txtBuscarCliente.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.txtBuscarCliente.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
+            this.txtBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
+            this.txtBuscarCliente.Hint = "Buscar por nombre o DNI...";
+            this.txtBuscarCliente.Location = new System.Drawing.Point(0, 22);
+            this.txtBuscarCliente.MaxLength = 32767;
+            this.txtBuscarCliente.Multiline = false;
+            this.txtBuscarCliente.Name = "txtBuscarCliente";
+            this.txtBuscarCliente.PasswordChar = '\0';
+            this.txtBuscarCliente.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBuscarCliente.SelectedText = "";
+            this.txtBuscarCliente.SelectionLength = 0;
+            this.txtBuscarCliente.SelectionStart = 0;
+            this.txtBuscarCliente.Size = new System.Drawing.Size(652, 38);
+            this.txtBuscarCliente.TabIndex = 7;
+            this.txtBuscarCliente.TabStop = false;
+            this.txtBuscarCliente.UseSystemPasswordChar = false;
             // 
             // panelClienteCard
             // 
@@ -153,6 +177,29 @@
             this.panelProductos.Name = "panelProductos";
             this.panelProductos.Size = new System.Drawing.Size(934, 258);
             this.panelProductos.TabIndex = 2;
+            // 
+            // txtBuscarProducto
+            // 
+            this.txtBuscarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
+            this.txtBuscarProducto.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.txtBuscarProducto.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.txtBuscarProducto.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
+            this.txtBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtBuscarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
+            this.txtBuscarProducto.Hint = "Buscar un producto";
+            this.txtBuscarProducto.Location = new System.Drawing.Point(0, 20);
+            this.txtBuscarProducto.MaxLength = 32767;
+            this.txtBuscarProducto.Multiline = false;
+            this.txtBuscarProducto.Name = "txtBuscarProducto";
+            this.txtBuscarProducto.PasswordChar = '\0';
+            this.txtBuscarProducto.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBuscarProducto.SelectedText = "";
+            this.txtBuscarProducto.SelectionLength = 0;
+            this.txtBuscarProducto.SelectionStart = 0;
+            this.txtBuscarProducto.Size = new System.Drawing.Size(429, 38);
+            this.txtBuscarProducto.TabIndex = 8;
+            this.txtBuscarProducto.TabStop = false;
+            this.txtBuscarProducto.UseSystemPasswordChar = false;
             // 
             // dgvProductos
             // 
@@ -332,6 +379,7 @@
             // panelPago
             // 
             this.panelPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(35)))));
+            this.panelPago.Controls.Add(this.button_VerVentas);
             this.panelPago.Controls.Add(this.btnConcretar);
             this.panelPago.Controls.Add(this.btnCancelar);
             this.panelPago.Controls.Add(this.lblTotalValue);
@@ -485,58 +533,29 @@
             this.lblSecPago.TabIndex = 0;
             this.lblSecPago.Text = "MEDIO DE PAGO";
             // 
-            // txtBuscarCliente
+            // button_VerVentas
             // 
-            this.txtBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
-            this.txtBuscarCliente.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.txtBuscarCliente.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.txtBuscarCliente.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
-            this.txtBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
-            this.txtBuscarCliente.Hint = "Buscar por nombre o DNI...";
-            this.txtBuscarCliente.Location = new System.Drawing.Point(0, 22);
-            this.txtBuscarCliente.MaxLength = 32767;
-            this.txtBuscarCliente.Multiline = false;
-            this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.PasswordChar = '\0';
-            this.txtBuscarCliente.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBuscarCliente.SelectedText = "";
-            this.txtBuscarCliente.SelectionLength = 0;
-            this.txtBuscarCliente.SelectionStart = 0;
-            this.txtBuscarCliente.Size = new System.Drawing.Size(652, 38);
-            this.txtBuscarCliente.TabIndex = 7;
-            this.txtBuscarCliente.TabStop = false;
-            this.txtBuscarCliente.UseSystemPasswordChar = false;
-            // 
-            // txtBuscarProducto
-            // 
-            this.txtBuscarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
-            this.txtBuscarProducto.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.txtBuscarProducto.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.txtBuscarProducto.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
-            this.txtBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtBuscarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
-            this.txtBuscarProducto.Hint = "Buscar un producto";
-            this.txtBuscarProducto.Location = new System.Drawing.Point(0, 20);
-            this.txtBuscarProducto.MaxLength = 32767;
-            this.txtBuscarProducto.Multiline = false;
-            this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.PasswordChar = '\0';
-            this.txtBuscarProducto.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBuscarProducto.SelectedText = "";
-            this.txtBuscarProducto.SelectionLength = 0;
-            this.txtBuscarProducto.SelectionStart = 0;
-            this.txtBuscarProducto.Size = new System.Drawing.Size(429, 38);
-            this.txtBuscarProducto.TabIndex = 8;
-            this.txtBuscarProducto.TabStop = false;
-            this.txtBuscarProducto.UseSystemPasswordChar = false;
+            this.button_VerVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.button_VerVentas.FlatAppearance.BorderSize = 0;
+            this.button_VerVentas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(82)))), ((int)(((byte)(221)))));
+            this.button_VerVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(122)))), ((int)(((byte)(255)))));
+            this.button_VerVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_VerVentas.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_VerVentas.ForeColor = System.Drawing.Color.White;
+            this.button_VerVentas.Location = new System.Drawing.Point(13, 132);
+            this.button_VerVentas.Name = "button_VerVentas";
+            this.button_VerVentas.Size = new System.Drawing.Size(103, 38);
+            this.button_VerVentas.TabIndex = 10;
+            this.button_VerVentas.Text = "Ver Ventas";
+            this.button_VerVentas.UseVisualStyleBackColor = false;
+            this.button_VerVentas.Click += new System.EventHandler(this.button_VerVentas_Click);
             // 
             // FormVender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(35)))));
-            this.ClientSize = new System.Drawing.Size(921, 521);
+            this.ClientSize = new System.Drawing.Size(921, 568);
             this.Controls.Add(this.panelPago);
             this.Controls.Add(this.panelSepProductos);
             this.Controls.Add(this.panelProductos);
@@ -590,5 +609,6 @@
         private System.Windows.Forms.Button btnConcretar;
         private ReaLTaiizor.Controls.HopeTextBox txtBuscarCliente;
         private ReaLTaiizor.Controls.HopeTextBox txtBuscarProducto;
+        private System.Windows.Forms.Button button_VerVentas;
     }
 }
