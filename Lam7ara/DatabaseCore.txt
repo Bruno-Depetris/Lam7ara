@@ -12,6 +12,24 @@ CREATE TABLE IF NOT EXISTS Clientes (
 );
 
 
+CREATE TABLE IF NOT EXISTS Reparaciones (
+    ReparacionID          INTEGER PRIMARY KEY AUTOINCREMENT,
+    NombreEquipo          TEXT    NOT NULL,
+    NombreDueno           TEXT    NOT NULL,
+    ApellidoDueno         TEXT    NOT NULL,
+    TelefonoDueno         TEXT,
+    DescripcionProblema   TEXT,
+    Presupuesto           REAL    NOT NULL DEFAULT 0,
+    FechaIngreso          TEXT    NOT NULL DEFAULT (date('now')),
+    FechaEstimadaEntrega  TEXT,
+    Observaciones         TEXT,
+    Estado                TEXT    NOT NULL DEFAULT 'Ingresado'
+                          CHECK (Estado IN ('Ingresado', 'En proceso', 'Listo', 'Entregado')),
+    IsDeleted             INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE INDEX IF NOT EXISTS idx_reparaciones_estado ON Reparaciones (Estado);
+
 CREATE TABLE IF NOT EXISTS Productos (
     ProductoID      INTEGER PRIMARY KEY AUTOINCREMENT,
     Nombre          TEXT    NOT NULL,

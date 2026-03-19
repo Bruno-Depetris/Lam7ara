@@ -37,22 +37,22 @@ namespace Lam7ara.Forms.vender {
             int cantVentas = 0;
 
             try {
-                string medioPago = cmbMedioPago.SelectedItem?.ToString();
-                string filtroMP = medioPago == "Todos" ? string.Empty : medioPago;
+                string medioPago = cmbMedioPago.SelectedItem?.ToString()?.Trim() ?? "Todos";
+                string filtroMP = medioPago.Equals("Todos", StringComparison.OrdinalIgnoreCase) ? "" : medioPago;
 
                 string q = @"SELECT v.VentaID, v.Fecha, c.Nombre || ' ' || c.Apellido AS Cliente,
                              v.Total, v.MedioPago, v.Cuotas, v.Estado
                              FROM Ventas v
                              INNER JOIN Clientes c ON v.ClienteID = c.ClienteID
-                             WHERE DATE(v.Fecha) >= DATE(@desde)
-                               AND DATE(v.Fecha) <= DATE(@hasta)
-                               AND (@mp = '' OR v.MedioPago = @mp)
+                             WHERE DATE(REPLACE(v.Fecha, '/', '-')) >= DATE(@desde)
+                               AND DATE(REPLACE(v.Fecha, '/', '-')) <= DATE(@hasta)
+                               AND (IFNULL(@mp, '') = '' OR TRIM(v.MedioPago) = TRIM(@mp))
                              ORDER BY v.Fecha DESC;";
 
                 using (var con = Conectar.ObtenerConexion())
                 using (var cmd = new SQLiteCommand(q, con)) {
                     cmd.Parameters.AddWithValue("@desde", dtpDesde.Value.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@hasta", dtpHasta.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@hasta", dtpHasta.Value.AddDays(1).ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@mp", filtroMP);
 
                     using (var r = cmd.ExecuteReader()) {

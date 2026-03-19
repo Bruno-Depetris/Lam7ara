@@ -86,12 +86,14 @@
     <Compile Include="Database\models\Cliente.cs" />
     <Compile Include="Database\models\Movimiento.cs" />
     <Compile Include="Database\models\Producto.cs" />
+    <Compile Include="Database\models\Reparacion.cs" />
     <Compile Include="Database\models\Venta.cs" />
     <Compile Include="Database\models\VentaProducto.cs" />
     <Compile Include="Database\services\CajaService.cs" />
     <Compile Include="Database\services\ClienteService.cs" />
     <Compile Include="Database\services\MovimientoService.cs" />
     <Compile Include="Database\services\ProductoService.cs" />
+    <Compile Include="Database\services\ReparacionService.cs" />
     <Compile Include="Database\services\VentaService.cs" />
     <Compile Include="Forms\clientes\FormCLIENTES.cs">
       <SubType>Form</SubType>
@@ -110,6 +112,12 @@
     </Compile>
     <Compile Include="Forms\main\FormMAIN.Designer.cs">
       <DependentUpon>FormMAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\tecnical\FormTecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\tecnical\FormTecnico.Designer.cs">
+      <DependentUpon>FormTecnico.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\vender\FormSelectorCliente.cs">
       <SubType>Form</SubType>
@@ -152,6 +160,9 @@
     <EmbeddedResource Include="Forms\main\FormMAIN.resx">
       <DependentUpon>FormMAIN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\movimientos\FormMovimientos.resx">
+      <DependentUpon>FormMovimientos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\vender\FormVender.resx">
       <DependentUpon>FormVender.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,11 +195,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="APIs\" />
-    <Folder Include="Forms\stock\" />
-    <Folder Include="Forms\tecnical\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DatabaseCore.txt" />
   </ItemGroup>

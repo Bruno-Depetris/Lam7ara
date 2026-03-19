@@ -1,7 +1,8 @@
 ﻿using Lam7ara.Forms.clientes;
+using Lam7ara.Forms.inicio;
 using Lam7ara.Forms.movimientos;
 using Lam7ara.Forms.stock;
-using Lam7ara.Forms.inicio;
+using Lam7ara.Forms.tecnical;
 using Lam7ara.Forms.vender;
 using System;
 using System.Drawing;
@@ -78,6 +79,11 @@ namespace Lam7ara {
             btnNavTecnico.ForeColor = colorInactiveText;
             btnNavTecnico.BackColor = Color.Transparent;
 
+            
+            btnNavMovimiento.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
+            btnNavMovimiento.ForeColor = colorInactiveText;
+            btnNavMovimiento.BackColor = Color.Transparent;
+
             activeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             activeButton.ForeColor = colorActiveText;
             activeButton.BackColor = colorActiveBg;
@@ -125,12 +131,11 @@ namespace Lam7ara {
         private void btnNavStock_Click(object sender, EventArgs e) {
             SetActiveNavItem(btnNavStock);
             AbrirFormNuevo(new FormStock());
-            // TODO: cargar contenido de Stock en panelMainContent
         }
 
         private void btnNavTecnico_Click(object sender, EventArgs e) {
             SetActiveNavItem(btnNavTecnico);
-            // TODO: cargar contenido de Técnico en panelMainContent
+            AbrirFormNuevo(new FormTecnico());
         }
 
         private void panelTopBar_Paint(object sender, PaintEventArgs e) {
