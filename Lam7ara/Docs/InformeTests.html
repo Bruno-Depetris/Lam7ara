@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Informe de Tests - Lam7ara</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 40px; color: #333; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        .resumen { background: #ecf0f1; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .resumen-item { display: inline-block; margin-right: 40px; }
+        .numero { font-size: 32px; font-weight: bold; }
+        .passed { color: #27ae60; }
+        .failed { color: #e74c3c; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
+        th { background: #3498db; color: white; padding: 12px 8px; text-align: left; }
+        td { padding: 10px 8px; border-bottom: 1px solid #ddd; }
+        tr:hover { background: #f5f5f5; }
+        .estado-passed { color: #27ae60; font-weight: bold; }
+        .estado-failed { color: #e74c3c; font-weight: bold; }
+        .tipo-tag { background: #3498db; color: white; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+        .footer { margin-top: 40px; font-size: 12px; color: #7f8c8d; border-top: 1px solid #ddd; padding-top: 15px; }
+        @media print { body { margin: 20px; } }
+    </style>
+</head>
+<body>
+    <h1>📋 Informe de Tests Unitarios - Lam7ara</h1>
+    
+    <p><strong>Proyecto:</strong> Lam7ara - Sistema de Gestión<br>
+    <strong>Framework:</strong> .NET Framework 4.8 | NUnit 3<br>
+    <strong>Fecha:</strong> <script>document.write(new Date().toLocaleDateString('es-AR'))</script></p>
+
+    <div class="resumen">
+        <div class="resumen-item">
+            <div class="numero">41</div>
+            <div>Tests Totales</div>
+        </div>
+        <div class="resumen-item">
+            <div class="numero passed">40</div>
+            <div>Exitosos</div>
+        </div>
+        <div class="resumen-item">
+            <div class="numero failed">1</div>
+            <div>Fallidos</div>
+        </div>
+        <div class="resumen-item">
+            <div class="numero">97.6%</div>
+            <div>Cobertura</div>
+        </div>
+    </div>
+
+    <h2>🧪 Tipo de Tests</h2>
+    <p>Todos los tests son <strong>tests unitarios de integración con base de datos</strong>. 
+    Utilizan SQLite en archivos temporales para simular el comportamiento real del sistema sin afectar datos de producción.</p>
+
+    <h2>👤 ClienteService (9 tests)</h2>
+    <table>
+        <tr><th>Test</th><th>Tipo</th><th>Estado</th></tr>
+        <tr><td>Agregar_ClienteValido_RetornaTrue</td><td><span class="tipo-tag">CRUD - Create</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Listar_DespuesDeAgregar_RetornaCliente</td><td><span class="tipo-tag">CRUD - Read</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Listar_NoRetornaEliminados</td><td><span class="tipo-tag">Soft Delete</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Buscar_PorNombre_RetornaCoincidencias</td><td><span class="tipo-tag">Búsqueda</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Buscar_PorDNI_RetornaCoincidencia</td><td><span class="tipo-tag">Búsqueda</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Buscar_TextoInexistente_RetornaListaVacia</td><td><span class="tipo-tag">Caso Borde</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Editar_CambiaApellido_Correctamente</td><td><span class="tipo-tag">CRUD - Update</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Eliminar_SetIsDeleted_NoAparenceEnListado</td><td><span class="tipo-tag">CRUD - Delete</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>NombreCompleto_RetornaFormatoApellidoNombre</td><td><span class="tipo-tag">Propiedad</span></td><td class="estado-passed">✓ Passed</td></tr>
+    </table>
+
+    <h2>📦 ProductoService (8 tests)</h2>
+    <table>
+        <tr><th>Test</th><th>Tipo</th><th>Estado</th></tr>
+        <tr><td>Agregar_ProductoValido_RetornaTrue</td><td><span class="tipo-tag">CRUD - Create</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Agregar_CondicionUsado_SeGuardaCorrectamente</td><td><span class="tipo-tag">Validación</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Listar_NoRetornaEliminados</td><td><span class="tipo-tag">Soft Delete</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Buscar_PorNombre_RetornaCoincidencia</td><td><span class="tipo-tag">Búsqueda</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Buscar_TextoInexistente_RetornaVacio</td><td><span class="tipo-tag">Caso Borde</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>BuscarPorID_IDInexistente_RetornaNull</td><td><span class="tipo-tag">Caso Borde</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Editar_CambiaStock_Correctamente</td><td><span class="tipo-tag">CRUD - Update</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>ActualizarStock_DescuentaCantidad</td><td><span class="tipo-tag">Lógica Negocio</span></td><td class="estado-passed">✓ Passed</td></tr>
+    </table>
+
+    <h2>💰 VentaService (9 tests)</h2>
+    <table>
+        <tr><th>Test</th><th>Tipo</th><th>Estado</th></tr>
+        <tr><td>Agregar_VentaValida_RetornaTrue</td><td><span class="tipo-tag">CRUD - Create</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Agregar_VentaValida_DescontaStock</td><td><span class="tipo-tag">Lógica Negocio</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Agregar_VentaCredito_GuardaCuotas</td><td><span class="tipo-tag">Validación</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Agregar_MultipleProductos_DescontaTodosCorrectamente</td><td><span class="tipo-tag">Lógica Negocio</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Agregar_StockInsuficiente_RetornaFalseYNoModificaNada</td><td><span class="tipo-tag">Validación</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Agregar_StockInsuficiente_NoRegistraVenta</td><td><span class="tipo-tag">Transacción</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>BuscarPorID_RetornaDetalleConProductos</td><td><span class="tipo-tag">CRUD - Read</span></td><td class="estado-failed">✗ Failed</td></tr>
+        <tr><td>Anular_CambiaEstadoAAnulada</td><td><span class="tipo-tag">Estado</span></td><td class="estado-passed">✓ Passed</td></tr>
+    </table>
+
+    <h2>🏦 CajaService (6 tests)</h2>
+    <table>
+        <tr><th>Test</th><th>Tipo</th><th>Estado</th></tr>
+        <tr><td>Abrir_SinCajaPrevia_RetornaTrue</td><td><span class="tipo-tag">Estado</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Abrir_ConCajaYaAbierta_RetornaFalse</td><td><span class="tipo-tag">Validación</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Cerrar_CajaAbierta_CambiaEstadoACerrada</td><td><span class="tipo-tag">Estado</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Cerrar_CajaAbierta_PermiteAbrirNuevaCaja</td><td><span class="tipo-tag">Flujo</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>ObtenerCajaAbierta_ConCajaAbierta_RetornaCaja</td><td><span class="tipo-tag">CRUD - Read</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>ObtenerCajaAbierta_SinCaja_RetornaNull</td><td><span class="tipo-tag">Caso Borde</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Listar_RetornaTodasLasCajas</td><td><span class="tipo-tag">CRUD - Read</span></td><td class="estado-passed">✓ Passed</td></tr>
+    </table>
+
+    <h2>🔧 ReparacionService (9 tests)</h2>
+    <table>
+        <tr><th>Test</th><th>Tipo</th><th>Estado</th></tr>
+        <tr><td>Agregar_ReparacionValida_RetornaTrue</td><td><span class="tipo-tag">CRUD - Create</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Listar_DespuesDeAgregar_RetornaReparacion</td><td><span class="tipo-tag">CRUD - Read</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Listar_NoRetornaEliminados</td><td><span class="tipo-tag">Soft Delete</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Buscar_PorNombreEquipo_RetornaCoincidencia</td><td><span class="tipo-tag">Búsqueda</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Buscar_PorApellido_RetornaCoincidencia</td><td><span class="tipo-tag">Búsqueda</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>Editar_CambiaPresupuesto</td><td><span class="tipo-tag">CRUD - Update</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>CambiarEstado_DeIngresadoAEnProceso_Actualiza</td><td><span class="tipo-tag">Estado</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>CambiarEstado_AListo_Actualiza</td><td><span class="tipo-tag">Estado</span></td><td class="estado-passed">✓ Passed</td></tr>
+        <tr><td>NombreCompletodueno_RetornaFormato</td><td><span class="tipo-tag">Propiedad</span></td><td class="estado-passed">✓ Passed</td></tr>
+    </table>
+
+    <h2>📝 Clasificación de Tipos de Test</h2>
+    <table>
+        <tr><th>Tipo</th><th>Descripción</th><th>Cantidad</th></tr>
+        <tr><td><span class="tipo-tag">CRUD</span></td><td>Operaciones Create, Read, Update, Delete básicas</td><td>15</td></tr>
+        <tr><td><span class="tipo-tag">Búsqueda</span></td><td>Funcionalidad de búsqueda y filtrado</td><td>7</td></tr>
+        <tr><td><span class="tipo-tag">Validación</span></td><td>Verificación de reglas de negocio y restricciones</td><td>5</td></tr>
+        <tr><td><span class="tipo-tag">Lógica Negocio</span></td><td>Procesos complejos (descuento stock, cálculos)</td><td>4</td></tr>
+        <tr><td><span class="tipo-tag">Estado</span></td><td>Cambios de estado en entidades</td><td>5</td></tr>
+        <tr><td><span class="tipo-tag">Caso Borde</span></td><td>Comportamiento con datos inexistentes o nulos</td><td>4</td></tr>
+        <tr><td><span class="tipo-tag">Soft Delete</span></td><td>Eliminación lógica (IsDeleted)</td><td>4</td></tr>
+        <tr><td><span class="tipo-tag">Propiedad</span></td><td>Propiedades calculadas de modelos</td><td>2</td></tr>
+    </table>
+
+    <div class="footer">
+        <p><strong>Herramientas utilizadas:</strong> NUnit 3, System.Data.SQLite, Visual Studio 2022</p>
+        <p>Generado automáticamente para el proyecto Lam7ara</p>
+    </div>
+</body>
+</html>

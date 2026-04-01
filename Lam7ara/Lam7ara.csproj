@@ -178,6 +178,7 @@
     <None Include="Documentation\LAM7ARA-PRIMERA ENTREGA.docx" />
     <None Include="Documentation\LAM7ARA-SEGUNDA ENTREGA.docx" />
     <None Include="Documentation\LAM7ARA-TERCERA ENTREGA.docx" />
+    <Content Include="Docs\InformeTests.html" />
     <Content Include="Lam7araDataBaseAPP.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

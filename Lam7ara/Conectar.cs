@@ -5,12 +5,18 @@ using System.IO;
 namespace Lam7ara{
     internal class Conectar {
 
+        // Cadena de conexión para tests (si está seteada, se usa en lugar de la real)
+        public static string CadenaTest { get; set; }
 
+        private static string GetDataDirectory() {
+            var dataDir = AppDomain.CurrentDomain.GetData("DataDirectory");
+            return dataDir?.ToString() ?? AppDomain.CurrentDomain.BaseDirectory;
+        }
 
-        private static string pathDB = Path.Combine(AppDomain.CurrentDomain.GetData("DataDirectory").ToString(), "Lam7araDataBaseAPP.db");
-        private static string cadena = $"Data Source={Path.Combine(AppDomain.CurrentDomain.GetData("DataDirectory").ToString(), "Lam7araDataBaseAPP.db")};";
+        private static string pathDB = Path.Combine(GetDataDirectory(), "Lam7araDataBaseAPP.db");
+        private static string cadena = $"Data Source={Path.Combine(GetDataDirectory(), "Lam7araDataBaseAPP.db")};";
 
-        private static string cadenaAppData = $"Data Source={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Lam7ara", "Lam7araDataBaseAPP.db")};Version=3;"; 
+        private static string cadenaAppData = $"Data Source={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Lam7ara", "Lam7araDataBaseAPP.db")};Version=3;";
         private static string pathDBAppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Lam7ara", "Lam7araDataBaseAPP.db");
         private static string BackUp = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BackUpLam7ara", "Lam7araDataBaseAPP.db");
 
@@ -77,7 +83,8 @@ namespace Lam7ara{
         }
         public static SQLiteConnection ObtenerConexion() {
             try {
-                string cadenaConexion = cadenaAppData;
+                // Si hay una cadena de test configurada, usarla
+                string cadenaConexion = CadenaTest ?? cadenaAppData;
                 var conexion = new SQLiteConnection(cadenaConexion);
                 conexion.Open();
 
