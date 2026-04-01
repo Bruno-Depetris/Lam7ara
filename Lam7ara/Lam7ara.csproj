@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="APIs\Logica\ApiCotizacion.cs" />
     <Compile Include="APIs\Modelo\ModeloApiCotizacion .cs" />
+    <Compile Include="ConectarTest.cs" />
     <Compile Include="Conectar.cs" />
     <Compile Include="Database\models\Caja.cs" />
     <Compile Include="Database\models\Cliente.cs" />

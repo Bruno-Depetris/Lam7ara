@@ -76,19 +76,20 @@ namespace Lam7ara{
             return BackUp;
         }
         public static SQLiteConnection ObtenerConexion() {
+            if(!string.IsNullOrEmpty(ConectarTest.CadenaTest)) {
+                var testCon = new SQLiteConnection(ConectarTest.CadenaTest);
+                testCon.Open();
+                return testCon;
+            }
             try {
-                string cadenaConexion = cadenaAppData;
-                var conexion = new SQLiteConnection(cadenaConexion);
+                var conexion = new SQLiteConnection(cadenaAppData);
                 conexion.Open();
-
                 return conexion;
-
             } catch(Exception ex) {
-                Console.WriteLine($"Error al obtener la conexión: {ex.Message}");
+                Console.WriteLine($"Error al obtener la conexion: {ex.Message}");
                 throw;
             }
         }
-
 
     }
 }
