@@ -53,10 +53,10 @@ namespace Lam7ara.Forms.vender {
 
 
         private void btnBuscarProducto_Click(object sender, EventArgs e) {
-            string q = txtBuscarProducto.Text.Trim();
-            if(string.IsNullOrEmpty(q)) return;
 
-            List<Producto> resultados = _productoService.Buscar(q);
+            if(string.IsNullOrEmpty(txtBuscarProducto.Text.Trim())) return;
+
+            List<Producto> resultados = _productoService.Buscar(txtBuscarProducto.Text.Trim());
 
             if(resultados.Count == 1) {
                 SetProducto(resultados [0]);
@@ -123,7 +123,6 @@ namespace Lam7ara.Forms.vender {
             }
             lblTotalValue.Text = "$" + total.ToString("N2");
         }
-
 
         private void rbCredito_CheckedChanged(object sender, EventArgs e) {
             lblCuotasLabel.Visible = rbCredito.Checked;
@@ -195,8 +194,6 @@ namespace Lam7ara.Forms.vender {
             LimpiarBuscadorProducto();
         }
 
-        // ── HELPERS ────────────────────────────────────────────────────
-
         private void LimpiarBuscadorProducto() {
             _productoSeleccionado = null;
             txtBuscarProducto.Text = "Buscar producto...";
@@ -218,8 +215,8 @@ namespace Lam7ara.Forms.vender {
         }
 
         private void button_VerVentas_Click(object sender, EventArgs e) {
-            using (var f = new FormVerVentas())
-                f.ShowDialog();
+
+            new FormVerVentas().Show();
         }
     }
 }

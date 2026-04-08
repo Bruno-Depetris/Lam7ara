@@ -160,19 +160,34 @@ namespace Lam7ara.Database.Services
             }
         }
 
-        public bool Anular(int id)
-        {
-            try
-            {
-                using (var con = Conectar.ObtenerConexion())
-                using (var cmd = new SQLiteCommand("UPDATE Ventas SET Estado = 'Anulada' WHERE VentaID = @id;", con))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.ExecuteNonQuery();
+        public bool Anular(int id) {
+            using(var con = Conectar.ObtenerConexion())
+            using(var tx = con.BeginTransaction()) {
+                try {
+                    List<VentaProducto> detalle = ObtenerDetalle(id, con);
+
+                    foreach(var item in detalle) {
+                        var prod = _productoService.BuscarPorID(item.ProductoID);
+                        if(prod != null) {
+                            int stockRestaurado = prod.Stock + item.Cantidad;
+                            _productoService.ActualizarStock(item.ProductoID, stockRestaurado, con, tx);
+                        }
+                    }
+
+                    using(var cmd = new SQLiteCommand(
+                        "UPDATE Ventas SET Estado = 'Anulada' WHERE VentaID = @id;", con, tx)) {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    tx.Commit();
+                    return true;
+                } catch(Exception ex) {
+                    tx.Rollback();
+                    Console.WriteLine(ex.Message);
+                    return false;
                 }
-                return true;
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message); return false; }
         }
     }
 }

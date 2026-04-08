@@ -19,12 +19,12 @@
 
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMAIN));
             this.timerClock = new System.Windows.Forms.Timer(this.components);
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.btnNavMovimiento = new System.Windows.Forms.Button();
             this.panelSidebarHeader = new System.Windows.Forms.Panel();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.lblLogoChar = new System.Windows.Forms.Label();
+            this.parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             this.lblAppName = new System.Windows.Forms.Label();
             this.lblAppSubtitle = new System.Windows.Forms.Label();
             this.panelSep1 = new System.Windows.Forms.Panel();
@@ -47,7 +47,6 @@
             this.panelTopBarSep = new System.Windows.Forms.Panel();
             this.panelSidebar.SuspendLayout();
             this.panelSidebarHeader.SuspendLayout();
-            this.panelLogo.SuspendLayout();
             this.panelSidebarFooter.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.panelTopBar.SuspendLayout();
@@ -102,7 +101,7 @@
             // panelSidebarHeader
             // 
             this.panelSidebarHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(43)))));
-            this.panelSidebarHeader.Controls.Add(this.panelLogo);
+            this.panelSidebarHeader.Controls.Add(this.parrotPictureBox1);
             this.panelSidebarHeader.Controls.Add(this.lblAppName);
             this.panelSidebarHeader.Controls.Add(this.lblAppSubtitle);
             this.panelSidebarHeader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -111,34 +110,32 @@
             this.panelSidebarHeader.Size = new System.Drawing.Size(189, 78);
             this.panelSidebarHeader.TabIndex = 0;
             // 
-            // panelLogo
+            // parrotPictureBox1
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.panelLogo.Controls.Add(this.lblLogoChar);
-            this.panelLogo.Location = new System.Drawing.Point(14, 21);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(36, 36);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // lblLogoChar
-            // 
-            this.lblLogoChar.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogoChar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLogoChar.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogoChar.ForeColor = System.Drawing.Color.White;
-            this.lblLogoChar.Location = new System.Drawing.Point(0, 0);
-            this.lblLogoChar.Name = "lblLogoChar";
-            this.lblLogoChar.Size = new System.Drawing.Size(36, 36);
-            this.lblLogoChar.TabIndex = 0;
-            this.lblLogoChar.Text = "L";
-            this.lblLogoChar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.parrotPictureBox1.ColorLeft = System.Drawing.Color.DodgerBlue;
+            this.parrotPictureBox1.ColorRight = System.Drawing.Color.DodgerBlue;
+            this.parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            this.parrotPictureBox1.FilterAlpha = 200;
+            this.parrotPictureBox1.FilterEnabled = false;
+            this.parrotPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("parrotPictureBox1.Image")));
+            this.parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            this.parrotPictureBox1.IsElipse = false;
+            this.parrotPictureBox1.IsParallax = false;
+            this.parrotPictureBox1.Location = new System.Drawing.Point(3, 9);
+            this.parrotPictureBox1.Name = "parrotPictureBox1";
+            this.parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            this.parrotPictureBox1.Size = new System.Drawing.Size(75, 56);
+            this.parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            this.parrotPictureBox1.TabIndex = 0;
+            this.parrotPictureBox1.Text = "parrotPictureBox1";
+            this.parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // lblAppName
             // 
             this.lblAppName.BackColor = System.Drawing.Color.Transparent;
             this.lblAppName.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
-            this.lblAppName.Location = new System.Drawing.Point(58, 19);
+            this.lblAppName.Location = new System.Drawing.Point(84, 9);
             this.lblAppName.Name = "lblAppName";
             this.lblAppName.Size = new System.Drawing.Size(120, 23);
             this.lblAppName.TabIndex = 1;
@@ -150,7 +147,7 @@
             this.lblAppSubtitle.BackColor = System.Drawing.Color.Transparent;
             this.lblAppSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
-            this.lblAppSubtitle.Location = new System.Drawing.Point(58, 43);
+            this.lblAppSubtitle.Location = new System.Drawing.Point(86, 38);
             this.lblAppSubtitle.Name = "lblAppSubtitle";
             this.lblAppSubtitle.Size = new System.Drawing.Size(120, 16);
             this.lblAppSubtitle.TabIndex = 2;
@@ -421,13 +418,13 @@
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelSidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1171, 666);
             this.Name = "FormMAIN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lam7ara";
             this.panelSidebar.ResumeLayout(false);
             this.panelSidebarHeader.ResumeLayout(false);
-            this.panelLogo.ResumeLayout(false);
             this.panelSidebarFooter.ResumeLayout(false);
             this.panelContent.ResumeLayout(false);
             this.panelTopBar.ResumeLayout(false);
@@ -440,8 +437,6 @@
         private System.Windows.Forms.Timer timerClock;
         private System.Windows.Forms.Panel panelSidebar;
         private System.Windows.Forms.Panel panelSidebarHeader;
-        private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Label lblLogoChar;
         private System.Windows.Forms.Label lblAppName;
         private System.Windows.Forms.Label lblAppSubtitle;
         private System.Windows.Forms.Panel panelSep1;
@@ -463,5 +458,6 @@
         private System.Windows.Forms.Panel panelTopBarSep;
         private System.Windows.Forms.Panel panelMainContent;
         private System.Windows.Forms.Button btnNavMovimiento;
+        private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
     }
 }

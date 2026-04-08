@@ -14,6 +14,7 @@ namespace Lam7ara.Forms.vender {
         private readonly VentaService _ventaService = new VentaService();
         private readonly ClienteService _clienteService = new ClienteService();
         private readonly CajaService _cajaService = new CajaService();
+        private readonly ProductoService _productoService = new ProductoService();
 
         private int _ventaIDSeleccionada = -1;
         private Venta _ventaSeleccionada = null;
@@ -139,8 +140,6 @@ namespace Lam7ara.Forms.vender {
             btnAnular.Enabled = false;
         }
 
-        // ── ANULAR ─────────────────────────────────────────────────────
-
         private void btnAnular_Click(object sender, EventArgs e) {
             if (_ventaIDSeleccionada < 0) return;
 
@@ -153,16 +152,32 @@ namespace Lam7ara.Forms.vender {
             if (confirm != DialogResult.Yes) return;
 
             bool ok = _ventaService.Anular(_ventaIDSeleccionada);
+
             if (ok) {
                 CargarVentas();
                 LimpiarDetalle();
+                
             } else {
                 MessageBox.Show("Error al anular la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // ── PDF ────────────────────────────────────────────────────────
+        private void RetornarStock(int idProducto) {
+            Producto prod = new Producto();
 
+            prod = _productoService.BuscarPorID(idProducto);
+            using(var con = Conectar.ObtenerConexion()) {
+                using(var tx = con.BeginTransaction()) {
+                    _productoService.ActualizarStock(idProducto, prod.Stock, con, tx); 
+                        
+                    
+                }
+            }
+            
+ 
+        }
+
+            
         private void btnImprimir_Click(object sender, EventArgs e) {
             if (_ventaSeleccionada == null) return;
 
@@ -188,7 +203,7 @@ namespace Lam7ara.Forms.vender {
                 string emailCliente = cliente?.Email ?? string.Empty;
 
                 // ── colores y fuentes ──────────────────────────────────
-                BaseColor colPrimario = new BaseColor(226, 232, 240);
+                BaseColor colPrimario = BaseColor.BLACK;
                 BaseColor colFondo = new BaseColor(19, 19, 43);
                 BaseColor colAccent = new BaseColor(99, 102, 241);
                 BaseColor colMuted = new BaseColor(100, 116, 139);
