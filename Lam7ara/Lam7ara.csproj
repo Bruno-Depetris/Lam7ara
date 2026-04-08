@@ -162,6 +162,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="LogotipoICO.ico" />
+    <EmbeddedResource Include="Forms\clientes\FormCLIENTES.resx">
+      <DependentUpon>FormCLIENTES.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\main\FormMAIN.resx">
       <DependentUpon>FormMAIN.cs</DependentUpon>
     </EmbeddedResource>

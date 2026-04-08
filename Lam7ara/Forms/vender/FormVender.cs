@@ -186,7 +186,7 @@ namespace Lam7ara.Forms.vender {
             lblClienteNombre.ForeColor = Color.FromArgb(148, 163, 184);
             lblClienteNombre.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
             lblClienteDNI.Text = "DNI: -";
-            txtBuscarCliente.Text = "Buscar por nombre o DNI...";
+            txtBuscarCliente.Hint = "Buscar por nombre o DNI...";
             txtBuscarCliente.ForeColor = Color.FromArgb(148, 163, 184);
             rbEfectivo.Checked = true;
             cmbCuotas.SelectedIndex = 0;
@@ -196,7 +196,7 @@ namespace Lam7ara.Forms.vender {
 
         private void LimpiarBuscadorProducto() {
             _productoSeleccionado = null;
-            txtBuscarProducto.Text = "Buscar producto...";
+            txtBuscarProducto.Hint = "Buscar producto...";
             txtBuscarProducto.ForeColor = Color.FromArgb(148, 163, 184);
             nudCantidad.Value = 1;
         }
